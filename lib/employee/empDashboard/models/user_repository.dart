@@ -10,6 +10,8 @@ class UserRepository {
     required String password,
     required String role,
   }) async {
+    return [mockEmployee];
+
     final Map<String, dynamic> data = {
       "user_Name": username,
       "user_Password": password,
@@ -17,7 +19,6 @@ class UserRepository {
       "mobile": "a",
       "role": role,
       "corporateId": corporateId,
-
     };
 
     final headers = {
@@ -33,7 +34,6 @@ class UserRepository {
     );
 
     final responseStream = await response.stream.bytesToString();
-
 
     if (response.statusCode == 200) {
       final List responseData = json.decode(responseStream);

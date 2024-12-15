@@ -45,7 +45,7 @@ class _AdminEditProfilePageState extends State<AdminEditProfilePage>
   final TextEditingController _phoneNumberController =
       TextEditingController(text: GlobalObjects.adminphonenumber);
   final AdminEditProfileRepository _editProfileRepository =
-      AdminEditProfileRepository('http://62.171.184.216:9595');
+      AdminEditProfileRepository();
   @override
   void initState() {
     addToCartPopUpAnimationController = AnimationController(

@@ -4,9 +4,9 @@ import '../../../Sqlite/admin_sqliteHelper.dart';
 import '../models/AdminDashBoard_model.dart';
 
 class AdminDashboardRepository {
-  final String baseUrl;
+  final String baseUrl = 'http://62.171.184.216:9595';
 
-  AdminDashboardRepository(this.baseUrl);
+  AdminDashboardRepository();
 
   Future<AdminDashBoard> fetchDashboardData(DateTime date) async {
     final formattedDate = date.toIso8601String();

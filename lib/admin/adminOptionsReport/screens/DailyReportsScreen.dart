@@ -21,13 +21,11 @@ class DailyReportsScreen extends StatefulWidget {
 }
 
 class _DailyReportsScreenState extends State<DailyReportsScreen> {
-  final String baseUrl = 'http://62.171.184.216:9595';
-
   DateTime selectedDate = DateTime.now();
   List<AdminDailyReportsModel> dailyReports = [];
 
   AdminReportsRepository repository =
-      AdminReportsRepository('http://62.171.184.216:9595');
+      AdminReportsRepository();
 
   @override
   void initState() {

@@ -1,3 +1,4 @@
+import 'package:faker/faker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -54,6 +55,9 @@ import 'introduction/bloc/bloc_internet/internet_bloc.dart';
 import 'introduction/utilities/api_integration_files/api_intigration_bloc.dart';
 import 'login/bloc/loginBloc/loginbloc.dart';
 import 'package:device_preview/device_preview.dart';
+
+final faker = Faker();
+final randomGen = faker.randomGenerator;
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -215,15 +219,14 @@ class MyApp extends StatelessWidget {
             ),
           ),
           BlocProvider(
-            create: (context) => AdminEditProfileBloc(
-                AdminEditProfileRepository("http://62.171.184.216:9595")),
+            create: (context) =>
+                AdminEditProfileBloc(AdminEditProfileRepository()),
             child: AdminEditProfilePage(
               onSave: () {},
             ), // Replace with your main UI page
           ),
           BlocProvider(
-            create: (context) => AdminReportsBloc(
-                AdminReportsRepository('http://62.171.184.216:9595')),
+            create: (context) => AdminReportsBloc(AdminReportsRepository()),
             child: const DailyReportsScreen(
               selectedEmployeeIds: [],
             ),

@@ -542,7 +542,7 @@ class HomePageState extends State<EmpDashHome> {
                                 ),
                                 ProfileInfoCard(
                                   firstText: "Status",
-                                  secondText:
+                                  secondText: GlobalObjects.empStatus != null &&
                                       GlobalObjects.empStatus!.isNotEmpty
                                           ? GlobalObjects.empStatus
                                           : "---",

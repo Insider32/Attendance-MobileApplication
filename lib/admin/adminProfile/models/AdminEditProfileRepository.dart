@@ -5,9 +5,9 @@ import 'AdminEditProfileModel.dart';
 
 
 class AdminEditProfileRepository {
-  final String baseUrl;
+  final String baseUrl = "http://62.171.184.216:9595";
 
-  AdminEditProfileRepository(this.baseUrl);
+  AdminEditProfileRepository();
 
   Future<bool> updateAdminProfile(AdminEditProfile adminEditProfile) async {
     try {

@@ -34,6 +34,8 @@ class EmpAttendanceRepository {
   }
 
   Future<EmpAttendanceModel> getData() async {
+    return mockEmpAttendanceModel;
+
     if (!_isInitialized()) {
       // If not initialized, fetch data before proceeding
       await fetchDatabaseData();

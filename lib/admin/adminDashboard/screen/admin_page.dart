@@ -25,8 +25,7 @@ class AdminPage extends StatefulWidget {
 class _AdminPageState extends State<AdminPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   DateTime selectedDate = DateTime.now(); // Initialize with the current date
-  final adminDashboardRepository = AdminDashboardRepository(
-      'http://62.171.184.216:9595'); // Replace with your API base URL
+  final adminDashboardRepository = AdminDashboardRepository(); // Replace with your API base URL
   AdminDashBoard? adminData;
   @override
   void initState() {

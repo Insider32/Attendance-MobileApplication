@@ -17,3 +17,9 @@ class EmpDashModel {
     );
   }
 }
+
+final mockEmpDashModel = EmpDashModel(
+  presentCount: 10,
+  absentCount: 3,
+  leaveCount: 1,
+);

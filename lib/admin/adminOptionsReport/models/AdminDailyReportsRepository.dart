@@ -4,9 +4,9 @@ import '../../../Sqlite/admin_sqliteHelper.dart';
 import 'AdminDailyReportsModel.dart'; // Import your SQLite helper
 
 class AdminReportsRepository {
-  final String baseUrl;
+  final String baseUrl = "http://62.171.184.216:9595";
 
-  AdminReportsRepository(this.baseUrl);
+  AdminReportsRepository();
 
   Future<List<AdminDailyReportsModel>> fetchDailyReports(
       List<int> employeeIds, String reportDate) async {

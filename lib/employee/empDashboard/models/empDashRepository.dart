@@ -11,6 +11,8 @@ class EmpDashRepository {
       final dbHelper = EmployeeDatabaseHelper.instance;
       final firstEmployee = await dbHelper.getFirstEmployee();
 
+      return [mockEmpDashModel];
+
       if (firstEmployee != null) {
         final String corporateId = firstEmployee['corporate_id'] as String;
         final int empId = firstEmployee['id'] as int;

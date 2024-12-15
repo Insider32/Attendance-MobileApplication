@@ -1,3 +1,5 @@
+import 'package:project/main.dart';
+
 class EmpProfileModel {
   final int empId;
   final String empName;
@@ -25,7 +27,7 @@ class EmpProfileModel {
 
   factory EmpProfileModel.fromJson(Map<String, dynamic> json) {
     return EmpProfileModel(
-      empId:  json['empId'] ?? 0,
+      empId: json['empId'] ?? 0,
       empName: json['empName'] ?? '',
       fatherName: json['fatherName'] ?? '',
       password: json['pwd'],
@@ -40,3 +42,16 @@ class EmpProfileModel {
     );
   }
 }
+
+final mockEmpProfileModel = EmpProfileModel(
+  empId: randomGen.integer(100),
+  empName: faker.person.name(),
+  fatherName: faker.person.name(),
+  password: randomGen.string(10),
+  empCode: randomGen.string(10),
+  shiftCode: randomGen.string(10),
+  emailAddress: faker.internet.email(),
+  dateofJoin: DateTime.now(),
+  phoneNo: faker.phoneNumber.toString(),
+  profilePic: null,
+);

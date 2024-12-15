@@ -17,3 +17,5 @@ class EmpAttendanceModel {
     );
   }
 }
+
+final mockEmpAttendanceModel = EmpAttendanceModel();

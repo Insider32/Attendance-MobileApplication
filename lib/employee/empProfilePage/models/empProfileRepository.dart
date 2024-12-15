@@ -26,6 +26,8 @@ class EmpProfileRepository {
   }
 
   Future<List<EmpProfileModel>> getData() async {
+    return [mockEmpProfileModel];
+
     await _initialize(); // Ensure initialization is complete.
     if (coorporateId == null || coorporateId!.isEmpty || employeeId == 0) {
       throw Exception("coorporateId or employeeId not initialized");
