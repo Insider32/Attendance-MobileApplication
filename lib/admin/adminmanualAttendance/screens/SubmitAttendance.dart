@@ -427,7 +427,7 @@ class _SubmitAttendanceState extends State<SubmitAttendance>
                                       },
                                     ),
                                     style: ElevatedButton.styleFrom(
-                                      primary: Colors.green,
+                                      foregroundColor: Colors.green,
                                       elevation: 4.0,
                                       shape: RoundedRectangleBorder(
                                         borderRadius:
@@ -463,7 +463,7 @@ class _SubmitAttendanceState extends State<SubmitAttendance>
                                       },
                                     ),
                                     style: ElevatedButton.styleFrom(
-                                      primary: Colors.red,
+                                      foregroundColor: Colors.red,
                                       elevation: 4.0,
                                       shape: RoundedRectangleBorder(
                                         borderRadius:
@@ -493,9 +493,9 @@ class _SubmitAttendanceState extends State<SubmitAttendance>
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   elevation: 5,
-                                  primary:
+                                  backgroundColor:
                                       Colors.white, // White background color
-                                  onPrimary:
+                                  foregroundColor:
                                       AppColors.primaryColor, // Text color
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(
