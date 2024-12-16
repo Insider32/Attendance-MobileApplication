@@ -28,6 +28,7 @@ class EmpLeaveRepository {
   }
 
   Future<String> getLeaveTypeName(int leaveId) async {
+    return 'LeaveType';
     final corporateId = await getCorporateId();
     final apiUrl =
         "http://62.171.184.216:9595/api/employee/leave/getleavetype?CorporateId=$corporateId";
@@ -46,7 +47,7 @@ class EmpLeaveRepository {
     if (response.statusCode == 200) {
       final List<dynamic> responseData = json.decode(response.body);
       final leaveType = responseData.firstWhere(
-            (element) => element['leaveTypeId'] == leaveId,
+        (element) => element['leaveTypeId'] == leaveId,
         orElse: () => null, // Return null if no match is found
       );
       if (leaveType != null) {
@@ -62,6 +63,7 @@ class EmpLeaveRepository {
   }
 
   Future<List<EmpLeaveModel>> getData() async {
+    return [mockEmpLeaveModel];
     try {
       final corporateId = await getCorporateId();
       final apiUrl =
@@ -81,7 +83,7 @@ class EmpLeaveRepository {
       if (response.statusCode == 200) {
         final List<dynamic> responseData = json.decode(response.body);
         final List<EmpLeaveModel> leaveTypes =
-        responseData.map((json) => EmpLeaveModel.fromJson(json)).toList();
+            responseData.map((json) => EmpLeaveModel.fromJson(json)).toList();
         return leaveTypes;
       } else {
         throw Exception(
@@ -90,7 +92,8 @@ class EmpLeaveRepository {
     } catch (e) {
       // Handle any database or network errors
       print("Error: $e");
-      throw Exception("Failed to fetch data from the database or make API request.");
+      throw Exception(
+          "Failed to fetch data from the database or make API request.");
     }
   }
 }

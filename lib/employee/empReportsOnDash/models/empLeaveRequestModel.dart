@@ -17,3 +17,9 @@ class EmpLeaveModel {
     );
   }
 }
+
+final mockEmpLeaveModel = EmpLeaveModel(
+  leaveTypeId: 1,
+  ltypeCode: 'ABS',
+  ltypeName: 'Absence',
+);

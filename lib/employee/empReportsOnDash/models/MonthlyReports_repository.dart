@@ -33,6 +33,7 @@ class MonthlyReportsRepository {
     required int month,
     required int year,
   }) async {
+    return [mockMonthReport, mockMonthReport];
     try {
       final employeeData = await getEmployeeData();
       final String corporateId = employeeData['corporateId'] as String;
@@ -47,7 +48,7 @@ class MonthlyReportsRepository {
         final List<dynamic> data = json.decode(response.body);
 
         List<MonthlyReportsModel> reports =
-        data.map((item) => MonthlyReportsModel.fromJson(item)).toList();
+            data.map((item) => MonthlyReportsModel.fromJson(item)).toList();
         print(response.body);
         return reports;
       } else {
@@ -59,7 +60,4 @@ class MonthlyReportsRepository {
       throw Exception('Failed to load monthly reports: $e');
     }
   }
-
-
-
 }

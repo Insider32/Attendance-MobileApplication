@@ -9,17 +9,16 @@ class DailyReportsModel {
   final int? hoursWorked;
   final String? status;
 
-  DailyReportsModel({
-    this.payCode,
-    this.shiftStartTime,
-    this.shiftEndTime,
-    this.lunchStartTime,
-    this.lunchEndTime,
-    this.hoursWorked,
-    this.status,
-    this.in1,
-    this.out2
-  });
+  DailyReportsModel(
+      {this.payCode,
+      this.shiftStartTime,
+      this.shiftEndTime,
+      this.lunchStartTime,
+      this.lunchEndTime,
+      this.hoursWorked,
+      this.status,
+      this.in1,
+      this.out2});
 
   factory DailyReportsModel.fromJson(Map<String, dynamic> json) {
     return DailyReportsModel(
@@ -47,3 +46,15 @@ class DailyReportsModel {
     }
   }
 }
+
+final mockDailyReport = DailyReportsModel(
+  payCode: 'payCode',
+  shiftStartTime: DateTime.now(),
+  shiftEndTime: DateTime.now(),
+  lunchStartTime: DateTime.now(),
+  lunchEndTime: DateTime.now(),
+  hoursWorked: 4,
+  status: 'OK',
+  in1: DateTime.now(),
+  out2: DateTime.now(),
+);

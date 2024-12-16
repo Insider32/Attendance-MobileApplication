@@ -255,8 +255,6 @@ class _LeaveRequestFormState extends State<LeaveRequestForm>
                               items: [
                                 "",
                                 employeeLeave1.ltypeName,
-                                employeeLeave2.ltypeName,
-                                employeeLeave3.ltypeName,
                               ].map((String reason) {
                                 return DropdownMenuItem<String>(
                                   value: reason,

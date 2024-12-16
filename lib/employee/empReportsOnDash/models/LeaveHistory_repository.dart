@@ -28,6 +28,7 @@ class LeaveHistoryRepository {
   }
 
   Future<List<LeaveHistoryModel>> getLeaveHistory() async {
+    return [mockLeaveHistoryModel, mockLeaveHistoryModel];
     try {
       final employeeData = await getEmployeeData();
       final String corporateId = employeeData['corporateId'] as String;

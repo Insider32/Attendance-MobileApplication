@@ -1,4 +1,3 @@
-
 class LeaveHistoryModel {
   final DateTime fromDate;
   final DateTime toDate;
@@ -18,8 +17,12 @@ class LeaveHistoryModel {
 
   factory LeaveHistoryModel.fromJson(Map<String, dynamic> json) {
     return LeaveHistoryModel(
-      fromDate: json['fromdate'] != null ? DateTime.tryParse(json['fromdate']) ?? DateTime.now() : DateTime.now(),
-      toDate: json['todate'] != null ? DateTime.tryParse(json['todate']) ?? DateTime.now() : DateTime.now(),
+      fromDate: json['fromdate'] != null
+          ? DateTime.tryParse(json['fromdate']) ?? DateTime.now()
+          : DateTime.now(),
+      toDate: json['todate'] != null
+          ? DateTime.tryParse(json['todate']) ?? DateTime.now()
+          : DateTime.now(),
       reason: json['reason'] ?? "",
       leaveId: json['leaveid'] ?? 0,
       approvedStatus: json['approvedStatus'] ?? "",
@@ -29,3 +32,12 @@ class LeaveHistoryModel {
     );
   }
 }
+
+final mockLeaveHistoryModel = LeaveHistoryModel(
+  fromDate: DateTime.now(),
+  toDate: DateTime.now().add(const Duration(days: 1)),
+  reason: 'Some reason',
+  leaveId: 1,
+  approvedStatus: 'Approved',
+  applicationDate: DateTime.now(),
+);

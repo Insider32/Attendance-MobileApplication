@@ -56,3 +56,22 @@ class MonthlyReportsModel {
     );
   }
 }
+
+final mockMonthReport = MonthlyReportsModel(
+  shiftStartTime: DateTime.now().toIso8601String(),
+  shiftEndTime: DateTime.now().add(const Duration(days: 1)).toIso8601String(),
+  hoursWorked: 8,
+  status: 'OK',
+  otDuration: 4,
+  earlyArrival: 1,
+  earlyDeparture: 2,
+  lateArrival: 3,
+  totalLossHours: 2,
+  reason: 'Some reason',
+  shift: 'Shift 1',
+  in1: DateTime.now().toIso8601String(),
+  in2: DateTime.now().toIso8601String(),
+  out1: DateTime.now().toIso8601String(),
+  out2: DateTime.now().toIso8601String(),
+  remark: 'No remarks',
+);
