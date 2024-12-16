@@ -4,6 +4,7 @@ import '../../../Sqlite/admin_sqliteHelper.dart'; // Import your SQLite helper
 
 class ApproveManualPunchRepository {
   Future<bool> postApproveManualPunch(List<Map<String, dynamic>> data) async {
+    return true;
     try {
       // Retrieve corporate_id from SQLite table
       final adminDbHelper = AdminDatabaseHelper();

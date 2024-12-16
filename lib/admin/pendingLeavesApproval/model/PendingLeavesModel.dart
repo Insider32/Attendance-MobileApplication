@@ -1,4 +1,5 @@
 import 'package:intl/intl.dart';
+import 'package:project/main.dart';
 
 class PendingLeavesModel {
   final int id;
@@ -65,5 +66,17 @@ class PendingLeavesModel {
       return DateTime.now();
     }
   }
-
 }
+
+final mockPendingLeaves = PendingLeavesModel(
+  id: 1,
+  cardNo: '012345678',
+  empName: faker.person.name(),
+  deptName: 'Main Dept',
+  punchDatetime: DateTime.now(),
+  location: 'Dubai',
+  latitude: 14,
+  longitude: 14,
+  imeiNo: 'imeiNo',
+  imagepath: 'img/path',
+);

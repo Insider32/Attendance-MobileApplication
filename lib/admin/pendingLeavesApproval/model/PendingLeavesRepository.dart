@@ -4,8 +4,8 @@ import '../../../Sqlite/admin_sqliteHelper.dart';
 import 'PendingLeavesModel.dart';
 
 class PendingLeavesRepository {
-
   Future<List<PendingLeavesModel>> fetchPendingLeaves() async {
+    return [mockPendingLeaves];
     try {
       // Retrieve corporate_id from SQLite table
       final adminDbHelper = AdminDatabaseHelper();
@@ -19,7 +19,8 @@ class PendingLeavesRepository {
           return [];
         }
 
-        final String apiUrl = 'http://62.171.184.216:9595/api/admin/location/GetUnApproved?CorporateId=$corporateId';
+        final String apiUrl =
+            'http://62.171.184.216:9595/api/admin/location/GetUnApproved?CorporateId=$corporateId';
 
         final response = await http.get(Uri.parse(apiUrl));
         if (response.statusCode == 200) {
