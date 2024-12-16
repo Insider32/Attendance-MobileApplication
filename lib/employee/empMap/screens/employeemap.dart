@@ -352,15 +352,15 @@ class _EmployeeMapState extends State<EmployeeMap>
       final placemarks = await placemarkFromCoordinates(lat, long);
       if (mounted && placemarks.isNotEmpty) {
         setState(() {
-          if (placemarks[3].street != null) {
-            Street = placemarks[2].street!;
+          if (placemarks[0].street != null) {
+            Street = placemarks[0].street!;
           }
-          if (placemarks[3].subLocality != null) {
-            sublocaity = placemarks[3].subLocality!;
+          if (placemarks[0].subLocality != null) {
+            sublocaity = placemarks[0].subLocality!;
           }
           final List<String> countryNameParts = [];
-          if (placemarks[4].locality != null) {
-            countryNameParts.add(placemarks[4].locality!);
+          if (placemarks[0].locality != null) {
+            countryNameParts.add(placemarks[0].locality!);
           }
           if (placemarks[0].country != null) {
             countryNameParts.add(placemarks[0].country!);
@@ -888,7 +888,7 @@ class _EmployeeMapState extends State<EmployeeMap>
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CircularProgressIndicator(),
+                  CircularProgressIndicator(value: 1),
                   SizedBox(height: 16),
                   Text("Fetching Location..."),
                 ],

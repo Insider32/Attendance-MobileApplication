@@ -7,6 +7,7 @@ import 'geofenceGetlatLongmodel.dart';
 class GetLatLongRepo {
   Future<getLatLong?> fetchData() async {
     try {
+      return mockLatLong;
       final dbHelper = EmployeeDatabaseHelper.instance;
       final firstEmployee = await dbHelper.getFirstEmployee();
 

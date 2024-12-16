@@ -1,3 +1,5 @@
+import 'package:project/main.dart';
+
 class getLatLong {
   int? empId;
   String? lat;
@@ -22,3 +24,10 @@ class getLatLong {
     return data;
   }
 }
+
+final mockLatLong = getLatLong(
+  empId: randomGen.integer(10),
+  lat: '13.270984',
+  lon: '-14.430262',
+  radius: '100',
+);
