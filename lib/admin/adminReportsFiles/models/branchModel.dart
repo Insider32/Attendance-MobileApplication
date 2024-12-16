@@ -1,3 +1,6 @@
+import 'package:project/admin/adminReportsFiles/models/departmentModel.dart';
+import 'package:project/main.dart';
+
 class Branch {
   final int branchId;
   final String branchName;
@@ -86,8 +89,9 @@ class Branch {
       log: json['log'],
       arera: json['arera'],
       mstEmployees: (json['mstEmployees'] as List<dynamic>?)
-          ?.map((e) => MstEmployee.fromJson(e as Map<String, dynamic>))
-          .toList() ?? [],
+              ?.map((e) => MstEmployee.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          [],
     );
   }
 }
@@ -95,7 +99,8 @@ class Branch {
 class MstEmployee {
   final int empId;
   final String empName;
-  final String? empDescription; // Use nullable type for potentially null properties
+  final String?
+      empDescription; // Use nullable type for potentially null properties
 
   MstEmployee({
     required this.empId,
@@ -112,3 +117,41 @@ class MstEmployee {
   }
 }
 
+final mockMstEmployee1 = MstEmployee(
+  empId: randomGen.integer(10),
+  empName: faker.person.name(),
+);
+final mockMstEmployee2 = MstEmployee(
+  empId: randomGen.integer(10),
+  empName: faker.person.name(),
+);
+
+final mockBranch = Branch(
+  branchId: 1,
+  branchName: 'Main Branch',
+  address: '13 Address Str.',
+  phoneNo: faker.phoneNumber.us(),
+  emailId: 'emailId',
+  active: true,
+  onDate: DateTime.now(),
+  byUser: 1,
+  companyId: 1,
+  chk1: 'chk1',
+  chk2: 'chk2',
+  chk3: 'chk3',
+  chk4: 'chk4',
+  chk5: 'chk5',
+  chk6: 'chk6',
+  lat2: 'lat2',
+  log2: 'log2',
+  lat3: 'lat3',
+  log3: 'log3',
+  lat4: 'lat4',
+  log4: 'log4',
+  lat5: 'lat5',
+  log5: 'log5',
+  lat: '14',
+  log: '14',
+  arera: 'arera',
+  mstEmployees: [mockMstEmployee1, mockMstEmployee2],
+);

@@ -20,3 +20,10 @@ class AdminDashBoard {
     );
   }
 }
+
+final mockAdminDashBoard = AdminDashBoard(
+  presentCount: 5,
+  absentCount: 3,
+  lateCount: 11,
+  totalEmployeeCount: 20,
+);

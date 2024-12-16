@@ -1,11 +1,15 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:project/admin/adminReportsFiles/models/leaveRequestModel.dart';
 import '../../../Sqlite/admin_sqliteHelper.dart';
 
 class LeaveRepository {
   final String baseUrl = 'http://62.171.184.216:9595';
 
   Future<List<Map<String, dynamic>>> fetchLeaveRequests() async {
+    return [
+      {'1': mockLeaveRequest}
+    ];
     try {
       // Retrieve corporate_id from SQLite table
       final adminDbHelper = AdminDatabaseHelper();
@@ -19,7 +23,8 @@ class LeaveRepository {
           return [];
         }
 
-        final uri = Uri.parse('$baseUrl/api/admin/leave/getapproved?CorporateId=$corporateId');
+        final uri = Uri.parse(
+            '$baseUrl/api/admin/leave/getapproved?CorporateId=$corporateId');
 
         final response = await http.get(uri);
 
@@ -27,7 +32,8 @@ class LeaveRepository {
           final List<dynamic> jsonData = json.decode(response.body);
 
           // You can convert the dynamic List into a List of Map<String, dynamic>
-          List<Map<String, dynamic>> leaveRequests = jsonData.cast<Map<String, dynamic>>();
+          List<Map<String, dynamic>> leaveRequests =
+              jsonData.cast<Map<String, dynamic>>();
           return leaveRequests;
         } else {
           throw Exception('Failed to fetch leave requests');

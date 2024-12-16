@@ -15,8 +15,10 @@ class AdminDashboardRepository {
     final adminDbHelper = AdminDatabaseHelper();
     final adminData = await adminDbHelper.getAdmins();
     if (adminData.isNotEmpty) {
+      return mockAdminDashBoard;
       final corporateId = adminData.first['corporate_id'];
-      final url = Uri.parse('$baseUrl/api/Admin/Dashboard/Attendance?CorporateId=$corporateId&Date=$formattedDate');
+      final url = Uri.parse(
+          '$baseUrl/api/Admin/Dashboard/Attendance?CorporateId=$corporateId&Date=$formattedDate');
 
       try {
         final response = await http.get(url);

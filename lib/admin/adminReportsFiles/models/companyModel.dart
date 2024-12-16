@@ -1,3 +1,5 @@
+import 'package:project/main.dart';
+
 class Company {
   final int companyId;
   final String companyName;
@@ -125,8 +127,9 @@ class Company {
       onDate: DateTime.parse(json['onDate'] as String),
       byUser: json['byUser'] as int?,
       mstEmployees: (json['mstEmployees'] as List<dynamic>?)
-          ?.map((e) => MstEmployee.fromJson(e as Map<String, dynamic>))
-          .toList() ?? [],
+              ?.map((e) => MstEmployee.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          [],
     );
   }
 }
@@ -134,7 +137,8 @@ class Company {
 class MstEmployee {
   final int empId;
   final String empName;
-  final String? empDescription; // Use nullable type for potentially null properties
+  final String?
+      empDescription; // Use nullable type for potentially null properties
 
   MstEmployee({
     required this.empId,
@@ -150,3 +154,55 @@ class MstEmployee {
     );
   }
 }
+
+final mockMstEmployee1 = MstEmployee(
+  empId: randomGen.integer(10),
+  empName: faker.person.name(),
+);
+final mockMstEmployee2 = MstEmployee(
+  empId: randomGen.integer(10),
+  empName: faker.person.name(),
+);
+
+final mockCompany = Company(
+  companyId: 1,
+  companyName: 'Main Company',
+  description: 'description',
+  address: '13 Address Str',
+  phoneNo: faker.phoneNumber.us(),
+  emailId: '1',
+  vatNo: 'vatNo',
+  pfNo: 'pfNo',
+  tanNo: 'tanNo',
+  regNo: 'regNo',
+  esiNo: 'esiNo',
+  panNo: 'panNo',
+  pf: 1,
+  fpf: 2,
+  ppf: 3,
+  esi: 4,
+  addition1: 'addition1',
+  addition2: 'addition2',
+  addition3: 'addition3',
+  addition4: 'addition4',
+  addition5: 'addition5',
+  addition6: 'addition6',
+  addition7: 'addition7',
+  addition8: 'addition8',
+  addition9: 'addition9',
+  addition10: 'addition10',
+  ded1: 'ded1',
+  ded2: 'ded2',
+  ded3: 'ded3',
+  ded4: 'ded4',
+  ded5: 'ded5',
+  fded1: 'fded1',
+  fded2: 'fded2',
+  fded3: 'fded3',
+  fded4: 'fded4',
+  fded5: 'fded5',
+  active: true,
+  onDate: DateTime.now(),
+  byUser: 1,
+  mstEmployees: [mockMstEmployee1, mockMstEmployee2],
+);

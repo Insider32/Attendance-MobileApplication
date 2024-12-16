@@ -47,9 +47,8 @@ class AdminDailyReportsModel {
           ? DateTime.parse(json['shiftendtime'])
           : null,
       hoursWorked: json['hoursworked'].toDouble(),
-      otDuration: json['otduration'] != null
-          ? json['otduration'].toDouble()
-          : null,
+      otDuration:
+          json['otduration'] != null ? json['otduration'].toDouble() : null,
       earlyArrival: json['earlyarrival'].toDouble(),
       earlyDeparture: json['earlydeparture'].toDouble(),
       lateArrival: json['latearrival'].toDouble(),
@@ -65,3 +64,18 @@ class AdminDailyReportsModel {
     );
   }
 }
+
+final mockDailyReport = AdminDailyReportsModel(
+  empId: 1,
+  shiftStartTime: DateTime.now(),
+  shiftEndTime: DateTime.now(),
+  hoursWorked: 4,
+  status: 'OK',
+  in1: DateTime.now(),
+  out2: DateTime.now(),
+  earlyArrival: 1,
+  earlyDeparture: 2,
+  lateArrival: 1,
+  totalLossHrs: 1,
+  remark: '',
+);

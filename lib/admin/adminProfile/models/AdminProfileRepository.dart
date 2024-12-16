@@ -4,7 +4,6 @@ import '../../../Sqlite/admin_sqliteHelper.dart';
 import 'AdminProfileModel.dart'; // Import your SQLite helper
 
 class AdminProfileRepository {
-
   Future<AdminProfileModel?> fetchAdminProfile(String employeeId) async {
     try {
       final adminDbHelper = AdminDatabaseHelper();
@@ -17,7 +16,10 @@ class AdminProfileRepository {
           return null;
         }
 
-        final url = Uri.parse('http://62.171.184.216:9595/api/admin/dashboard/profile?CorporateId=$corporateId&employeeId=$employeeId');
+        return mockAdminProfileModel;
+
+        final url = Uri.parse(
+            'http://62.171.184.216:9595/api/admin/dashboard/profile?CorporateId=$corporateId&employeeId=$employeeId');
 
         final response = await http.get(url);
 
@@ -25,7 +27,8 @@ class AdminProfileRepository {
           final jsonData = json.decode(response.body);
           return AdminProfileModel.fromJson(jsonData);
         } else {
-          print('Failed to fetch admin profile data. Status code: ${response.statusCode}');
+          print(
+              'Failed to fetch admin profile data. Status code: ${response.statusCode}');
           return null;
         }
       } else {

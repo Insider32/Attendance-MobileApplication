@@ -1,3 +1,5 @@
+import 'package:project/main.dart';
+
 class GetActiveEmpModel {
   int? empId;
   String? empName;
@@ -29,3 +31,12 @@ class GetActiveEmpModel {
     );
   }
 }
+
+final mockActiveEmpModel = GetActiveEmpModel(
+  empId: 1,
+  empName: faker.person.name(),
+  empCode: '0101',
+  deptNames: 'Main Dept',
+  branchNames: 'Main Branch',
+  companyNames: 'Main Company',
+);

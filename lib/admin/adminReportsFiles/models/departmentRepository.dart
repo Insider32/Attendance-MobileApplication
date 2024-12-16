@@ -13,6 +13,7 @@ class DepartmentRepository {
       final adminDbHelper = AdminDatabaseHelper();
       final adminData = await adminDbHelper.getAdmins();
       if (adminData.isNotEmpty) {
+        return [mockDept];
         final String? corporateId = adminData.first['corporate_id'];
 
         if (corporateId == null) {
@@ -20,14 +21,15 @@ class DepartmentRepository {
           return [];
         }
 
-        final Uri uri = Uri.parse('$baseUrl/GetAllActive?CorporateId=$corporateId');
+        final Uri uri =
+            Uri.parse('$baseUrl/GetAllActive?CorporateId=$corporateId');
 
         final response = await http.get(uri);
 
         if (response.statusCode == 200) {
           final List<dynamic> data = json.decode(response.body);
           final List<Department> departments =
-          data.map((item) => Department.fromJson(item)).toList();
+              data.map((item) => Department.fromJson(item)).toList();
           return departments;
         } else {
           print('HTTP Status Code: ${response.statusCode}');

@@ -1,3 +1,5 @@
+import 'package:project/main.dart';
+
 class UnApprovedLeaveRequest {
   final int rwId;
   final String empId;
@@ -58,7 +60,7 @@ class UnApprovedLeaveRequest {
       approvedStatus: json['approvedStatus'] ?? "",
       approvedBy: json['approvedBy'] ?? "",
       applicationDate:
-      DateTime.tryParse(json['applicationDate'] ?? "") ?? DateTime.now(),
+          DateTime.tryParse(json['applicationDate'] ?? "") ?? DateTime.now(),
       remark: json['remark'],
       approvedDate: json['approvedDate'] != null
           ? DateTime.tryParse(json['approvedDate'] ?? "")
@@ -66,3 +68,39 @@ class UnApprovedLeaveRequest {
     );
   }
 }
+
+final mockUnApprovedLeaveRequest1 = UnApprovedLeaveRequest(
+  rwId: 1,
+  empId: '1',
+  empName: faker.person.name(),
+  department: 'Main Dept',
+  fromdate: DateTime.now(),
+  todate: DateTime.now(),
+  reason: 'Some reason',
+  leaveid: 1,
+  dur1: DateTime.now().toString(),
+  dur2: DateTime.now().toString(),
+  dur3: DateTime.now().toString(),
+  dur4: DateTime.now().toString(),
+  approvedStatus: 'OK',
+  approvedBy: 'Mark',
+  applicationDate: DateTime.now(),
+);
+
+final mockUnApprovedLeaveRequest2 = UnApprovedLeaveRequest(
+  rwId: 1,
+  empId: '1',
+  empName: faker.person.name(),
+  department: 'Main Dept',
+  fromdate: DateTime.now(),
+  todate: DateTime.now(),
+  reason: 'Some reason',
+  leaveid: 1,
+  dur1: DateTime.now().toString(),
+  dur2: DateTime.now().toString(),
+  dur3: DateTime.now().toString(),
+  dur4: DateTime.now().toString(),
+  approvedStatus: 'OK',
+  approvedBy: 'Mark',
+  applicationDate: DateTime.now(),
+);

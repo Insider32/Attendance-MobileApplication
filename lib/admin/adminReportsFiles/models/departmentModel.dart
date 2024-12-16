@@ -1,7 +1,10 @@
+import 'package:project/main.dart';
+
 class Department {
   final int? deptId;
   final String? deptName;
-  final String? deptDescription; // Use nullable type for potentially null properties
+  final String?
+      deptDescription; // Use nullable type for potentially null properties
   final bool active;
   final DateTime onDate;
   final int byUser;
@@ -22,21 +25,23 @@ class Department {
       deptId: json['deptId'] as int?,
       deptName: json['deptName'] as String?,
       deptDescription: json['deptDescription'] as String?,
-      active: json['active'] as bool? ?? false, // Handle null or incorrect types
+      active:
+          json['active'] as bool? ?? false, // Handle null or incorrect types
       onDate: DateTime.parse(json['onDate'] as String),
       byUser: json['byUser'] as int? ?? 0, // Handle null or incorrect types
       mstEmployees: (json['mstEmployees'] as List<dynamic>?)
-          ?.map((e) => MstEmployee.fromJson(e as Map<String, dynamic>))
-          .toList() ?? [],
+              ?.map((e) => MstEmployee.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          [],
     );
   }
-
 }
 
 class MstEmployee {
   final int empId;
   final String empName;
-  final String? empDescription; // Use nullable type for potentially null properties
+  final String?
+      empDescription; // Use nullable type for potentially null properties
 
   MstEmployee({
     required this.empId,
@@ -52,3 +57,21 @@ class MstEmployee {
     );
   }
 }
+
+final mockMstEmployee1 = MstEmployee(
+  empId: randomGen.integer(10),
+  empName: faker.person.name(),
+);
+final mockMstEmployee2 = MstEmployee(
+  empId: randomGen.integer(10),
+  empName: faker.person.name(),
+);
+
+final mockDept = Department(
+  deptId: 1,
+  deptName: 'Main Dept',
+  active: true,
+  onDate: DateTime.now(),
+  byUser: 1,
+  mstEmployees: [mockMstEmployee1, mockMstEmployee2],
+);

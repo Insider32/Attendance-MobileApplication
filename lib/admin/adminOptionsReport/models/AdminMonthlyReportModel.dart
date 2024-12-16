@@ -62,14 +62,25 @@ class AdminMonthlyReportsModel {
       totalLossHrs: json['totallosshrs'] != null
           ? (json['totallosshrs'] is int ? json['totallosshrs'] : 0)
           : 0,
-      status: json['status'] ?? "",  // Default to empty string if null
-      reason: json['reason'] ?? "",  // Default to empty string if null
-      shift: json['shift'] ?? "",  // Default to empty string if null
+      status: json['status'] ?? "", // Default to empty string if null
+      reason: json['reason'] ?? "", // Default to empty string if null
+      shift: json['shift'] ?? "", // Default to empty string if null
       in1: json['in1'] != null ? DateTime.parse(json['in1']) : null,
       in2: json['in2'] != null ? DateTime.parse(json['in2']) : null,
       out1: json['out1'] != null ? DateTime.parse(json['out1']) : null,
       out2: json['out2'] != null ? DateTime.parse(json['out2']) : null,
-      remark: json['remark'] ?? "",  // Default to empty string if null
+      remark: json['remark'] ?? "", // Default to empty string if null
     );
   }
 }
+
+final mockAdminMonthly = AdminMonthlyReportsModel(
+  empId: 1,
+  hoursWorked: 1,
+  earlyArrival: 2,
+  earlyDeparture: 3,
+  lateArrival: 4,
+  totalLossHrs: 5,
+  status: 'OK',
+  remark: 'None',
+);

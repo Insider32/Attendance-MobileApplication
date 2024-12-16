@@ -5,6 +5,7 @@ import '../../../Sqlite/admin_sqliteHelper.dart';
 
 class LeaveTypeRepository {
   Future<List<Map<String, dynamic>>?> fetchLeaveTypes() async {
+    return [{'ltypeName': 'Leave'}];
     try {
       // Retrieve corporate_id from SQLite table
       final adminDbHelper = AdminDatabaseHelper();
@@ -18,13 +19,15 @@ class LeaveTypeRepository {
           return null;
         }
 
-        final String baseUrl = 'http://62.171.184.216:9595/api/admin/leave/getleavetype?CorporateId=$corporateId';
+        final String baseUrl =
+            'http://62.171.184.216:9595/api/admin/leave/getleavetype?CorporateId=$corporateId';
 
         final response = await http.get(Uri.parse(baseUrl));
 
         if (response.statusCode == 200) {
           final List<dynamic> jsonData = json.decode(response.body);
-          List<Map<String, dynamic>> leaveTypes = jsonData.cast<Map<String, dynamic>>();
+          List<Map<String, dynamic>> leaveTypes =
+              jsonData.cast<Map<String, dynamic>>();
           return leaveTypes;
         } else {
           throw Exception('Failed to fetch leave types');

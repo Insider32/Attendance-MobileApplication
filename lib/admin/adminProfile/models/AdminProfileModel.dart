@@ -37,3 +37,12 @@ class AdminProfileModel {
     return data;
   }
 }
+
+final mockAdminProfileModel = AdminProfileModel(
+  userLoginId: 'test',
+  userName: 'test',
+  userPassword: 'test',
+  email: 'test@test.com',
+  mobile: '',
+  onDate: DateTime.now().toString(),
+);

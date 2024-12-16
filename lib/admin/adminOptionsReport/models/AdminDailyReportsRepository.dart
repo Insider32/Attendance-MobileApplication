@@ -10,6 +10,7 @@ class AdminReportsRepository {
 
   Future<List<AdminDailyReportsModel>> fetchDailyReports(
       List<int> employeeIds, String reportDate) async {
+    return [mockDailyReport];
     try {
       // Retrieve corporate_id from SQLite table
       final adminDbHelper = AdminDatabaseHelper();
@@ -22,8 +23,10 @@ class AdminReportsRepository {
           return [];
         }
 
-        final employeeIdParams = employeeIds.map((id) => 'employeeIds=$id').join('&');
-        final url = '$baseUrl/api/admin/report/getdailyreport?CorporateId=$corporateId&$employeeIdParams&ReportDate=$reportDate';
+        final employeeIdParams =
+            employeeIds.map((id) => 'employeeIds=$id').join('&');
+        final url =
+            '$baseUrl/api/admin/report/getdailyreport?CorporateId=$corporateId&$employeeIdParams&ReportDate=$reportDate';
 
         final response = await http.get(Uri.parse(url));
 
@@ -31,7 +34,9 @@ class AdminReportsRepository {
           final List<dynamic> data = json.decode(response.body);
 
           // Convert the JSON data to a list of AdminDailyReportsModel objects
-          final reports = data.map((item) => AdminDailyReportsModel.fromJson(item)).toList();
+          final reports = data
+              .map((item) => AdminDailyReportsModel.fromJson(item))
+              .toList();
 
           return reports;
         } else {

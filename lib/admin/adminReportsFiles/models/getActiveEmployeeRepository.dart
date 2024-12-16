@@ -5,6 +5,7 @@ import 'getActiveEmployeesModel.dart';
 
 class GetActiveEmpRepository {
   Future<List<GetActiveEmpModel>> getActiveEmployees() async {
+    return [mockActiveEmpModel];
     try {
       // Retrieve corporate_id from SQLite table
       final adminDbHelper = AdminDatabaseHelper();
@@ -18,16 +19,19 @@ class GetActiveEmpRepository {
           return [];
         }
 
-        final apiUrl = 'http://62.171.184.216:9595/api/Admin/User/GetActiveEmployees?CorporateId=$corporateId';
+        final apiUrl =
+            'http://62.171.184.216:9595/api/Admin/User/GetActiveEmployees?CorporateId=$corporateId';
 
         final response = await http.get(Uri.parse(apiUrl));
 
         if (response.statusCode == 200) {
           final List<dynamic> data = json.decode(response.body);
-          List<GetActiveEmpModel> employees = data.map((json) => GetActiveEmpModel.fromJson(json)).toList();
+          List<GetActiveEmpModel> employees =
+              data.map((json) => GetActiveEmpModel.fromJson(json)).toList();
           return employees;
         } else {
-          throw Exception('Failed to fetch data from the API. Status code: ${response.statusCode}');
+          throw Exception(
+              'Failed to fetch data from the API. Status code: ${response.statusCode}');
         }
       } else {
         print('No admin data found in the SQLite table');
